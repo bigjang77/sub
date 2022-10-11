@@ -43,7 +43,7 @@ public class HomeController {
         System.out.println("==========================3===========================");
         homeService.구독하기(sub);
         System.out.println("==========================4===========================");
-        return new CMRespDto<>(1, "구독성공", null);
+        return new CMRespDto<>(1, "구독성공", sub);
     }
 
     @DeleteMapping("/home/{homeId}/sub/{subId}")

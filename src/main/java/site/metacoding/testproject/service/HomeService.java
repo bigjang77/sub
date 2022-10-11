@@ -19,8 +19,9 @@ public class HomeService {
         return homedao.findByDetail(homeId, principalId);
     }
 
-    public void 구독하기(Sub sub) {
+    public Sub 구독하기(Sub sub) {
         subDao.insert(sub);
+        return sub;
     }
 
     public void 구독취소하기(Integer subId) {

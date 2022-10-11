@@ -72,6 +72,8 @@
                 }).done((res) => {
                     if (res.code == 1) {
                         renderLoves();
+                        $("subId").val(res.data.homeId);
+                        console.log(res);
                     } else {
                         alert("구독을 실패했습니다");
                     }

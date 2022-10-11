@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="site.metacoding.testproject.domain.sub.SubDao">
 
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="subId">
 		INSERT INTO sub(user_id, home_id) VALUES(#{userId}, #{homeId});
 	</insert>
 
