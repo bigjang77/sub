@@ -18,5 +18,14 @@
 
 	<delete id="deleteById"></delete>
 
+	<select id="findByDetail" resultType="site.metacoding.testproject.web.dto.response.home.DetailDto">
+		SELECT
+		h.*,
+		(SELECT sub_id FROM sub WHERE user_id = #{principalId} AND home_id = #{homeId}) sub_id,
+		(SELECT 1 FROM sub WHERE user_id = #{principalId} AND home_id = #{homeId}) issubed
+		FROM home h
+		WHERE h.home_id = #{homeId};
+	</select>
+
 
 </mapper>
