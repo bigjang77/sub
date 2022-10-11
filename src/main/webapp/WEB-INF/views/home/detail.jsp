@@ -2,9 +2,9 @@
     <%@ include file="../layout/header.jsp" %>
 
         <div>
-            <input id="id" type="hidden" value="${detailDto.homeId}" />
+            <input id="homeId" type="hidden" value="${detailDto.homeId}" />
             <span>집번호${detailDto.homeId}</span>
-            <input id="lovesId" type="hidden" value="${detailDto.subId}" />
+            <input id="subId" type="hidden" value="${detailDto.subId}" />
             <span>구독번호${detailDto.subId}</span>
             <h3>집정보</h3>
             <div>구독 <i id="iconSub"
@@ -16,24 +16,12 @@
         </body>
 
         <script>
-            // $("#iconHeart").click(() => {
-            //     let check = $("#iconHeart").hasClass("fa-regular");
-            //     console.log(check);
-
-            //     if (check == true) {
-            //         $("#iconHeart").removeClass("fa-regular");
-            //         $("#iconHeart").addClass("fa-solid");
-            //         $("#iconHeart").css("color", "red");
-            //     } else {
-            //         $("#iconHeart").removeClass("fa-solid");
-            //         $("#iconHeart").addClass("fa-regular");
-            //         $("#iconHeart").css("color", "black");
-            //     }
-            // });
 
             //하트를 클릭햇을때 로직
             $("#iconSub").click(() => {
                 let isSubedState = $("#iconSub").hasClass("fa-solid");
+                console.log($("#homeId").val());
+                console.log($("subId").val());
                 console.log("클릭함");
                 if (isSubedState) {
                     deleteSub();
@@ -42,11 +30,29 @@
                 }
             });
 
-
+            //DB에 insert요청하기
+            function insertSub() {
+                let homeId = $("#homeId").val();
+                console.log("입력확인용");
+                console.log($("#homeId").val());
+                console.log($("#subId").val());
+                $.ajax("/home/" + homeId + "/sub", {
+                    type: "POST",
+                    dataType: "json"
+                }).done((res) => {
+                    if (res.code == 1) {
+                        renderLoves();
+                        $("subId").val(res.data.homeId);
+                        console.log(res);
+                    } else {
+                        alert("구독을 실패했습니다");
+                    }
+                });
+            }
 
             //DB에 delete요청하기
             function deleteSub() {
-                let homeId = $("#id").val();
+                let homeId = $("#homeId").val();
                 let lovesId = $("subId").val();
                 console.log("삭제확인용");
                 $.ajax("/home/" + homeId + "/sub/" + subId, {
@@ -62,24 +68,6 @@
 
                 });
             }
-            //DB에 insert요청하기
-            function insertSub() {
-                let homeId = $("#homeId").val();
-                console.log("입력확인용");
-                $.ajax("/home" + homeId + "/sub", {
-                    type: "POST",
-                    dataType: "json"
-                }).done((res) => {
-                    if (res.code == 1) {
-                        renderLoves();
-                        $("subId").val(res.data.homeId);
-                        console.log(res);
-                    } else {
-                        alert("구독을 실패했습니다");
-                    }
-                });
-            }
-
 
             //빨강하트 그리기
             function renderSub() {

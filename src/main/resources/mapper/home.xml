@@ -21,8 +21,8 @@
 	<select id="findByDetail" resultType="site.metacoding.testproject.web.dto.response.home.DetailDto">
 		SELECT
 		h.*,
-		s.sub_id sub_id,
-		if(s.sub_id IS NULL, 0, 1) issubed
+		s.sub_id subId,
+		if(s.sub_id IS NULL, 0, 1) isSubed
 		FROM home h
 		LEFT OUTER JOIN (SELECT * FROM sub WHERE user_id = #{principalId}) s
 		ON h.home_id = s.home_id
