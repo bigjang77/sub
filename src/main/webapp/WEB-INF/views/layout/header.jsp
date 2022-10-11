@@ -17,7 +17,7 @@
         <body>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/boards">Blog</a>
+                    <a class="navbar-brand" href="/home">Blog</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -28,10 +28,10 @@
                             <c:choose>
                                 <c:when test="${empty principal}">
                                     <li class="nav-item"><a class="nav-link" href="/loginForm">로그인</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="/joinForm">회원가입</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/home">집목록</a></li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li class="nav-item"><a class="nav-link" href="/boards/writeForm">글쓰기</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/home">집목록</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
                                 </c:otherwise>
                             </c:choose>

@@ -1,8 +1,12 @@
 package site.metacoding.testproject.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.testproject.domain.home.Home;
 import site.metacoding.testproject.domain.home.HomeDao;
 import site.metacoding.testproject.domain.sub.Sub;
 import site.metacoding.testproject.domain.sub.SubDao;
@@ -26,6 +30,10 @@ public class HomeService {
 
     public void 구독취소하기(Integer subId) {
         homedao.delete(subId);
+    }
+
+    public List<Home> 집목록보기() {
+        return homedao.findAll();
     }
 
 }

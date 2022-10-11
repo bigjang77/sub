@@ -1,5 +1,7 @@
 package site.metacoding.testproject.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.testproject.domain.home.Home;
 import site.metacoding.testproject.domain.sub.Sub;
 import site.metacoding.testproject.domain.user.User;
 import site.metacoding.testproject.service.HomeService;
@@ -50,5 +53,12 @@ public class HomeController {
     public @ResponseBody CMRespDto<?> deleteSub(@PathVariable Integer homeId, @PathVariable Integer subId) {
         homeService.구독취소하기(subId);
         return new CMRespDto<>(1, "구독취소성공", null);
+    }
+
+    @GetMapping("/home")
+    public String getHomeList(Model model) {
+        List<Home> homeList = homeService.집목록보기();
+        model.addAttribute("homeList", homeList);
+        return "/home/list";
     }
 }
