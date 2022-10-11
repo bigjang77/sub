@@ -35,13 +35,12 @@
                 let homeId = $("#homeId").val();
                 console.log("입력확인용");
                 console.log($("#homeId").val());
-                console.log($("#subId").val());
                 $.ajax("/home/" + homeId + "/sub", {
                     type: "POST",
                     dataType: "json"
                 }).done((res) => {
                     if (res.code == 1) {
-                        renderLoves();
+                        renderSub();
                         $("subId").val(res.data.homeId);
                         console.log(res);
                     } else {
@@ -60,8 +59,7 @@
                     dataType: "json"
                 }).done((res) => {
                     if (res.code == 1) {
-
-                        renderCancelLoves();
+                        renderCancelSub();
                     } else {
                         alert("구독취소에 실패했습니다")
                     }
