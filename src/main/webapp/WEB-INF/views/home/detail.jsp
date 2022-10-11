@@ -3,7 +3,7 @@
 
         <div>
             <h3>집정보</h3>
-            <div>구독 <i id="iconHeart" class="fa-regular fa-heart"></i></div>
+            <div>구독 <i id="iconSub" class="fa-regular fa-heart"></i></div>
             <div>집이름 <span>${home.homeName}</span></div>
             <div>전화번호 <span>${home.homeTel}</span></div>
             <div>지역 <span>${home.homeLocation}</span></div>
@@ -11,20 +11,51 @@
         </body>
 
         <script>
-            $("#iconHeart").click(() => {
-                let check = $("#iconHeart").hasClass("fa-regular");
-                console.log(check);
+            // $("#iconHeart").click(() => {
+            //     let check = $("#iconHeart").hasClass("fa-regular");
+            //     console.log(check);
 
-                if (check == true) {
-                    $("#iconHeart").removeClass("fa-regular");
-                    $("#iconHeart").addClass("fa-solid");
-                    $("#iconHeart").css("color", "red");
+            //     if (check == true) {
+            //         $("#iconHeart").removeClass("fa-regular");
+            //         $("#iconHeart").addClass("fa-solid");
+            //         $("#iconHeart").css("color", "red");
+            //     } else {
+            //         $("#iconHeart").removeClass("fa-solid");
+            //         $("#iconHeart").addClass("fa-regular");
+            //         $("#iconHeart").css("color", "black");
+            //     }
+            // });
+
+
+            $("#iconSub").click(() => {
+                let isSubedState = $("#iconSub").hasClass("fa-solid");
+                console.log("클릭함")
+                if (isSubedState) {
+                    deleteSub();
                 } else {
-                    $("#iconHeart").removeClass("fa-solid");
-                    $("#iconHeart").addClass("fa-regular");
-                    $("#iconHeart").css("color", "black");
+                    insertSub();
                 }
+                renderSub(isSubedState);
             });
+
+            function insertSub() {
+
+            }
+            function deleteSub() {
+
+            }
+
+            function renderSub(isSubedState) {
+                if (isSubedState == true) {
+                    $("#iconSub").removeClass("fa-regular");
+                    $("#iconSub").addClass("fa-solid");
+                    $("#iconSub").css("color", "red");
+                } else {
+                    $("#iconSub").removeClass("fa-solid");
+                    $("#iconSub").addClass("fa-regular");
+                    $("#iconSub").css("color", "black");
+                }
+            }
         </script>
 
         </html>

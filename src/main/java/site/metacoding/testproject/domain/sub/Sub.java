@@ -13,4 +13,10 @@ public class Sub {
     private Integer subId;
     private Integer userId;
     private Integer homeId;
+
+    public Sub(Integer userId, Integer homeId) {
+        this.userId = userId;
+        this.homeId = homeId;
+    }
+
 }
