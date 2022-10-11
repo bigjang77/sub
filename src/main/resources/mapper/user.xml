@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="site.metacoding.testproject.domain.userUserDao">
+<mapper namespace="site.metacoding.testproject.domain.user.UserDao">
 
 	<insert id="insert">
-		INSERT INTO user(name, job, createdAt) VALUES(#{name}, #{job} ,NOW());
+		INSERT INTO user(name, user_name, password, job) VALUES(#{name} ,#{username}, #{password} ,#{job});
 	</insert>
 
 	<select id="findAll" resultType="site.metacoding.testproject.domain.user.User">
@@ -11,12 +11,16 @@
 	</select>
 
 	<select id="findById" resultType="site.metacoding.testproject.domain.user.User">
-		SELECT * FROM user WHERE id = #{id}
+		SELECT * FROM user WHERE user_id = #{userId}
 	</select>
 
 	<update id="update"></update>
 
 	<delete id="deleteById"></delete>
+
+	<select id="findByUsername" resultType="site.metacoding.testproject.domain.user.User">
+		Select * from user WHERE username = #{username}
+	</select>
 
 
 </mapper>

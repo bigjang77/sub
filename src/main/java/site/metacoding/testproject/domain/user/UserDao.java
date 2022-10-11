@@ -5,11 +5,13 @@ import java.util.List;
 public interface UserDao {
     public void insert(User user);
 
-    public User findById(Integer id);
+    public User findById(Integer userId);
 
     public List<User> findAll();
 
     public void update(User user);
 
-    public void delete(Integer id);
+    public void delete(Integer userId);
+
+    public User findByUsername(String username);
 }

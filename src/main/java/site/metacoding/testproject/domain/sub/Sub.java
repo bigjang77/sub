@@ -1,4 +1,4 @@
-package site.metacoding.testproject.domain.user;
+package site.metacoding.testproject.domain.sub;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,10 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class User {
+public class Sub {
+    private Integer subId;
     private Integer userId;
-    private String name;
-    private String username;
-    private String password;
-    private String job;
+    private Integer homeId;
 }
