@@ -15,7 +15,7 @@ public interface HomeDao {
 
     public void update(Home home);
 
-    public void delete(Integer homeId);
+    public void deleteById(Integer homeId);
 
     public DetailDto findByDetail(@Param("homeId") Integer homeId, @Param("principalId") Integer principalId);
 }

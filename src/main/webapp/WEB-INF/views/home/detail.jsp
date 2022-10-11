@@ -21,7 +21,7 @@
             $("#iconSub").click(() => {
                 let isSubedState = $("#iconSub").hasClass("fa-solid");
                 console.log($("#homeId").val());
-                console.log($("subId").val());
+                console.log($("#subId").val());
                 console.log("클릭함");
                 if (isSubedState) {
                     deleteSub();
@@ -41,7 +41,7 @@
                 }).done((res) => {
                     if (res.code == 1) {
                         renderSub();
-                        $("subId").val(res.data.homeId);
+                        $("#subId").val(res.data.homeId);
                         console.log(res);
                     } else {
                         alert("구독을 실패했습니다");
@@ -52,7 +52,7 @@
             //DB에 delete요청하기
             function deleteSub() {
                 let homeId = $("#homeId").val();
-                let lovesId = $("subId").val();
+                let subId = $("#subId").val();
                 console.log("삭제확인용");
                 $.ajax("/home/" + homeId + "/sub/" + subId, {
                     type: "DELETE",

@@ -31,7 +31,7 @@
                     }
                 }).done((res) => {
                     if (res.code == 1) {
-                        alert("로그인성공, 새로고침해주세요");
+                        alert("로그인성공");
                         location.href = "/home";
                     } else {
                         alert("로그인 실패, 아이디 패스워드를 확인해주세요");

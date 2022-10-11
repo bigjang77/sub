@@ -29,7 +29,7 @@ public class HomeService {
     }
 
     public void 구독취소하기(Integer subId) {
-        homedao.delete(subId);
+        subDao.deleteById(subId);
     }
 
     public List<Home> 집목록보기() {

@@ -16,7 +16,9 @@
 
 	<update id="update"></update>
 
-	<delete id="deleteById"></delete>
+	<delete id="deleteById">
+		delete FROM home WHERE home_id = #{homeId}
+	</delete>
 
 	<select id="findByDetail" resultType="site.metacoding.testproject.web.dto.response.home.DetailDto">
 		SELECT
@@ -27,7 +29,6 @@
 		LEFT OUTER JOIN (SELECT * FROM sub WHERE user_id = #{principalId}) s
 		ON h.home_id = s.home_id
 		WHERE h.home_id = #{homeId};
-		
 	</select>
 
 

@@ -16,7 +16,9 @@
 
 	<update id="update"></update>
 
-	<delete id="deleteById"></delete>
+	<delete id="deleteById">
+		delete FROM sub WHERE sub_id = #{subId}
+	</delete>
 
 
 </mapper>

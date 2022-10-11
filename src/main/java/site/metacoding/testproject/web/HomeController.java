@@ -39,13 +39,9 @@ public class HomeController {
 
     @PostMapping("/home/{homeId}/sub")
     public @ResponseBody CMRespDto<?> insertSub(@PathVariable Integer homeId) {
-        System.out.println("==========================1===========================");
         User principal = (User) session.getAttribute("principal");
-        System.out.println("==========================2===========================");
         Sub sub = new Sub(principal.getUserId(), homeId);
-        System.out.println("==========================3===========================");
         homeService.구독하기(sub);
-        System.out.println("==========================4===========================");
         return new CMRespDto<>(1, "구독성공", sub);
     }
 

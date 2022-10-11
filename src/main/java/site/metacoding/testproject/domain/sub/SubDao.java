@@ -11,5 +11,5 @@ public interface SubDao {
 
     public void update(Sub sub);
 
-    public void delete(Integer subId);
+    public void deleteById(Integer subId);
 }
