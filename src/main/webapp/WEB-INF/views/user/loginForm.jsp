@@ -20,8 +20,8 @@
                     username: $("#username").val(),
                     password: $("#password").val()
                 };
-
                 console.log("클릭")
+
                 $.ajax("/login", {
                     type: "POST",
                     dataType: "json", // 응답 데이터
@@ -31,8 +31,8 @@
                     }
                 }).done((res) => {
                     if (res.code == 1) {
-                        console.log("로그인성공")
-                        location.href = "/";
+                        alert("로그인성공, 새로고침해주세요");
+                        location.reload;
                     } else {
                         alert("로그인 실패, 아이디 패스워드를 확인해주세요");
                     }
