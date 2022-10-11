@@ -11,7 +11,7 @@
 	</select>
 
 	<select id="findById" resultType="site.metacoding.testproject.domain.home.Home">
-		SELECT * FROM home WHERE home = #{homeId}
+		SELECT * FROM home WHERE home_id = #{homeId}
 	</select>
 
 	<update id="update"></update>

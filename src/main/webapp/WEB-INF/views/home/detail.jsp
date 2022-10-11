@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
-        <div class="d-flex justify-content-between">
-            <h3>제목</h3>
+
+        <div>
+            <h3>집정보</h3>
             <div>구독 <i id="iconHeart" class="fa-regular fa-heart"></i></div>
-            <div>회사명 <input type="text" placeholder="회사명을 입력하세요" readonly></div>
-            <div>설립연도 <input type="text" placeholder="2011.11.12" readonly></div>
-            <div>주요업무 <input type="text" placeholder="서버관리/프로그램설계" readonly></div>
-            <div>평균연봉 <input type="text" placeholder="연 4000" readonly></div>
-            <div>기업복지 <input type="text" placeholder="과자줌" readonly></div>
-            <div>회사소개 <input type="text" placeholder="회사조타" readonly></div>
+            <div>집이름 <span>${home.homeName}</span></div>
+            <div>전화번호 <span>${home.homeTel}</span></div>
+            <div>지역 <span>${home.homeLocation}</span></div>
         </div>
         </body>
 
