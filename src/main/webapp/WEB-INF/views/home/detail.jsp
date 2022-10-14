@@ -20,9 +20,25 @@
             //하트를 클릭햇을때 로직
             $("#iconSub").click(() => {
                 let isSubedState = $("#iconSub").hasClass("fa-solid");
-                console.log($("#homeId").val());
-                console.log($("#subId").val());
                 console.log("클릭함");
+                let socket = new WebSocket("ws://localhost:8000/websocket");
+
+                socket.onopen = function (e) {
+                    console.log('open server!')
+                };
+
+                socket.onerror = function (e) {
+                    console.log(e);
+                }
+
+                socket.onmessage = function (e) {
+                    console.log(e.data);
+                    let msgArea = document.querySelector('.iconSub');
+                    let newMsg = document.createElement('div');
+                    newMsg.innerText = e.data;
+                    msgArea.append(newMsg);
+                }
+
                 if (isSubedState) {
                     deleteSub();
                 } else {
@@ -78,6 +94,10 @@
                 $("#iconSub").addClass("fa-regular");
             }
 
+            function sendMsg() {
+                let content = document.querySelector('.content').value;
+                socket.send(content);
+            }
         </script>
 
         </html>

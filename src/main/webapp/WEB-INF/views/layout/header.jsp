@@ -33,6 +33,7 @@
                                 <c:otherwise>
                                     <li class="nav-item"><a class="nav-link" href="/home">집목록</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
+                                    <i class="fa-regular fa-message" style="color:azure"></i>
                                 </c:otherwise>
                             </c:choose>
                         </ul>
